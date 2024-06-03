@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number to Yoruba Translator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            color: #007bff;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #translation-result {
+            margin-top: 20px;
+            font-size: 1.4em;
+            color: #28a745;
+            background-color: #d4edda;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #error-message {
+            margin-top: 20px;
+            font-size: 1.4em;
+            color: #dc3545;
+            background-color: #f8d7da;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Number to Yoruba Translator</h1>
+        <form id="translation-form" action="/" method="post">
+            <label for="number-input">Enter a number between 1000 and 5000:</label>
+            <input type="number" id="number-input" name="number" min="1000" max="5000" required>
+            <button type="submit">Translate</button>
+        </form>
+        {% if translation %}
+            <div id="translation-result">{{ number }} is {{ translation }}</div>
+        {% endif %}
+        {% if error %}
+            <div id="error-message">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
