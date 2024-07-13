@@ -45,7 +45,7 @@ def translate_to_yoruba(number):
         hundreds = number // 100
         remainder = number % 100
         return yoruba_numbers[hundreds * 100] + " àti " + translate_to_yoruba(remainder) if remainder else yoruba_numbers[hundreds * 100]
-    elif number >= 1000 and number <= 5000:
+    elif number <= 5000:
         thousands = number // 1000
         remainder = number % 1000
         return yoruba_numbers[thousands * 1000] + " àti " + translate_to_yoruba(remainder) if remainder else yoruba_numbers[thousands * 1000]
@@ -61,8 +61,8 @@ def index():
         try:
             number = int(request.form['number'])
             print(f"Received number: {number}")  # Debug print
-            if number < 1000 or number > 5000:
-                error = "Please enter a number between 1000 and 5000."
+            if number < 1 or number > 5000:
+                error = "Please enter a number between 1 and 5000."
             else:
                 translation = translate_to_yoruba(number)
                 print(f"Translation: {translation}")  # Debug print
